@@ -104,6 +104,7 @@ MonoBehaviour:
   hp: 4
   MaxHP: 4
   speed: 2
+  onof: 0
 --- !u!50 &5674800118658026859
 Rigidbody2D:
   serializedVersion: 4

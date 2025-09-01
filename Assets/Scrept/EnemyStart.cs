@@ -31,7 +31,6 @@ public class EnemyStart : MonoBehaviour
         timeElapsed += Time.deltaTime;//時間を計測
         if (timeElapsed >= timeOut&&Go==1)
         {//TimeOutの値時間経過したら実行
-            Debug.Log("b");
             GenereteObgect();
             timeElapsed = 0.0f;//時間をリセット
         }

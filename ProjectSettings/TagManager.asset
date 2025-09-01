@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - EnemyStart
+  - a
+  - b
+  - Taihou1
   layers:
   - Default
   - TransparentFX

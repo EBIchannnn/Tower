@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,12 @@ public class Enemy : MonoBehaviour
     private Vector3 up= Vector3.up;//ˆÚ“®•ûŒü‚ğŠi”[‚·‚éƒxƒNƒgƒ‹
     private Vector3 down= Vector3.down;//"
     private Vector3 right= Vector3.right;//"
-    private EnemyStart enemyStart;//EnemyStart‚ğŠi”[‚·‚é•Ï”
+    //private EnemyStart enemyStart;//EnemyStart‚ğŠi”[‚·‚é•Ï”
     private GameOver gameOver;//gameover‚ğŠi”[‚·‚é•Ï”
+    public Boolean onof=false;
     private void Start()
     {
-        enemyStart = FindObjectOfType<EnemyStart>();//enemyStart‚Ìî•ñ‚ğæ“¾
+        //enemyStart = FindObjectOfType<EnemyStart>();//enemyStart‚Ìî•ñ‚ğæ“¾
         gameOver = FindObjectOfType<GameOver>();//gameover‚Ìî•ñ‚ğæ“¾
         hp = MaxHP;//hp‚Émaxhp‚ğŠi”[
     }
