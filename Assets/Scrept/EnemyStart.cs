@@ -27,32 +27,32 @@ public class EnemyStart : MonoBehaviour
     }
     void Update()
     {
-        createPosition = transform.position;//¶¬êŠ‚ğ“o˜^
-        timeElapsed += Time.deltaTime;//ŠÔ‚ğŒv‘ª
+        createPosition = transform.position;
+        timeElapsed += Time.deltaTime;
         if (timeElapsed >= timeOut&&Go==1)
-        {//TimeOut‚Ì’lŠÔŒo‰ß‚µ‚½‚çÀs
+        {
             GenereteObgect();
-            timeElapsed = 0.0f;//ŠÔ‚ğƒŠƒZƒbƒg
+            timeElapsed = 0.0f;
         }
     }
 
     private void GenereteObgect()
-    {//Enemy‚ğ¶¬‚·‚é
-        GameObject newObject=Instantiate(teki, createPosition, transform.rotation);//¶¬ˆ—
+    {
+        GameObject newObject=Instantiate(teki, createPosition, transform.rotation);
         Enemy enemy=newObject.GetComponent<Enemy>();
-        string objectID="Enemy_"+nextObjectID.ToString();//–¼‘O‚ğ¶¬
-        newObject.name = objectID;//–¼‘O‚ğ“K—p
+        string objectID="Enemy_"+nextObjectID.ToString();
+        newObject.name = objectID;
         enemy.speed = speed;
         enemy.MaxHP = HP;
-        objectDictionary.Add(objectID, newObject);//«‘‚É“o˜^
-        nextObjectID++;//Ÿ‚Ì–¼‘O
+        objectDictionary.Add(objectID, newObject);
+        nextObjectID++;
         if (objectID =="Enemy_1")
         {
-            SetTargetObject();//Å‰‚Éˆê“x‚¾‚¯ŒÄ‚Ño‚·
-        }//Debug.Log(sentouID);
+            SetTargetObject();
+        }
     }
     public bool IsEnemyExists()
-    {//æ“¾‚µ‚½objectID‚ªDictionry‚É‘¶İ‚µ‚½ê‡True‚ğ•Ô‚·
+    {
         return objectDictionary.ContainsKey(SentouID);
     }
     public void SetTargetObject()
@@ -60,33 +60,33 @@ public class EnemyStart : MonoBehaviour
         if(Go==1)
         {
             if (IsEnemyExists())
-            {//IsEnemyExists‚ªTrue‚Ìê‡‚Ìˆ—
-                Tuibi[] tuibis = FindObjectsOfType<Tuibi>();//‘S‚Ä‚Ì‘å–C‚Éˆ—‚ğ“K—p‚³‚¹‚é
+            {
+                Tuibi[] tuibis = FindObjectsOfType<Tuibi>();
                 foreach (Tuibi tuibi in tuibis)
                 {
                     tuibi.SetTargetObject(SentouID);
-                }//SentouID‚ğˆø”‚Æ‚µ‚Ä“n‚·
+                }
             }
             else
             {
-                sentouID++;//æ“ª‚ğ‚¸‚ç‚·
+                sentouID++;
                 SentouID = "Enemy_" + sentouID.ToString();
                 SetTargetObject();
             }
         }
     }
     public void RemoveObject(GameObject gameObject)
-    {//íœˆ—
-        Destroy(gameObject);//ˆø”‚Æ‚µ‚Ä“n‚³‚ê‚½Enemy‚ğíœ
-        objectDictionary.Remove(gameObject.name);//«‘‚©‚ç‚àíœ
+    {
+        Destroy(gameObject);
+        objectDictionary.Remove(gameObject.name);/0íœ
         price.increasePrice(20);
         price.increaseScore(score);
         score += 1;
         speed += (float)0.08;
         HP += (float)0.1;
         if (gameObject.name == SentouID)
-        {//‰ó‚ê‚½Enemy‚ªæ“ª‚©‚Ç‚¤‚©
-            sentouID++;//æ“ª‚ğŸ‚É‚¸‚ç‚·
+        {
+            sentouID++;
             SentouID = "Enemy_" + sentouID.ToString();
             SetTargetObject();
         }
@@ -94,6 +94,6 @@ public class EnemyStart : MonoBehaviour
     public void start()
     {
         Go = 1;
-        Time.timeScale = 1f;//ƒQ[ƒ€‚ğ“®‚©‚·
+        Time.timeScale = 1f;
     }
 }

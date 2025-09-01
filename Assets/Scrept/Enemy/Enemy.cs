@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float hp;//hp‚ğŠi”[‚·‚é•Ï”
-    public float MaxHP=4;//maxhp‚ğŠi”[‚·‚é•Ï”
-    public float speed=1;//ƒXƒs[ƒh‚ğŠi”[‚·‚é•Ï”
-    private Vector3 up= Vector3.up;//ˆÚ“®•ûŒü‚ğŠi”[‚·‚éƒxƒNƒgƒ‹
+    public float hp;//hpã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
+    public float MaxHP=4;//maxhpã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
+    public float speed=1;//ã‚¹ãƒ”ãƒ¼ãƒ‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
+    private Vector3 up= Vector3.up;//ç§»å‹•æ–¹å‘ã‚’æ ¼ç´ã™ã‚‹ãƒ™ã‚¯ãƒˆãƒ«
     private Vector3 down= Vector3.down;//"
     private Vector3 right= Vector3.right;//"
-    //private EnemyStart enemyStart;//EnemyStart‚ğŠi”[‚·‚é•Ï”
-    private GameOver gameOver;//gameover‚ğŠi”[‚·‚é•Ï”
+    //private EnemyStart enemyStart;//EnemyStartã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
+    private GameOver gameOver;//gameoverã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
     public Boolean onof=false;
     private void Start()
     {
-        //enemyStart = FindObjectOfType<EnemyStart>();//enemyStart‚Ìî•ñ‚ğæ“¾
-        gameOver = FindObjectOfType<GameOver>();//gameover‚Ìî•ñ‚ğæ“¾
-        hp = MaxHP;//hp‚Émaxhp‚ğŠi”[
+        //enemyStart = FindObjectOfType<EnemyStart>();//enemyStartã®æƒ…å ±ã‚’å–å¾—
+        gameOver = FindObjectOfType<GameOver>();//gameoverã®æƒ…å ±ã‚’å–å¾—
+        hp = MaxHP;//hpã«maxhpã‚’æ ¼ç´
     }
     void Update()
-    {//“G‚ğˆÚ“®‚³‚¹‚éˆ—
+    {//æ•µã‚’ç§»å‹•ã•ã›ã‚‹å‡¦ç†
         tekinoidou();
     }
-    void tekinoidou()//“G‚ÌˆÚ“®‚ğŠÇ—‚·‚éŠÖ”
-    {//À•W‚©‚çƒ‹[ƒg‚ğŒvZ
+    void tekinoidou()//æ•µã®ç§»å‹•ã‚’ç®¡ç†ã™ã‚‹é–¢æ•°
+    {//åº§æ¨™ã‹ã‚‰ãƒ«ãƒ¼ãƒˆã‚’è¨ˆç®—
         if (transform.position.y < 3.8 && transform.position.x <= -1.6)
         {
             transform.position += up * speed * Time.deltaTime;
@@ -46,10 +46,10 @@ public class Enemy : MonoBehaviour
         {
             transform.position += up * speed * Time.deltaTime;
         }
-        if (transform.position.y >= 6)//“G‚ÌyÀ•W‚ª6‚ğ’´‚¦‚½‚çÀs
+        if (transform.position.y >= 6)//æ•µã®yåº§æ¨™ãŒ6ã‚’è¶…ãˆãŸã‚‰å®Ÿè¡Œ
         {
-            //enemyStart.RemoveObject(gameObject);//“G‚ğíœ
-            gameOver.gameover();//ƒQ[ƒ€ƒI[ƒo[‚É‚·‚é
+            //enemyStart.RemoveObject(gameObject);//æ•µã‚’å‰Šé™¤
+            gameOver.gameover();//ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ã«ã™ã‚‹
         }
     }
 }
